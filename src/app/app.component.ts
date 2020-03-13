@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+// import { SelectAutocompleteComponent } from "./select-autocomplete/select-autocomplete.component";
+import { Component, ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'customer-app';
+
+  constructor() {}
+
+  print() {
+    console.log('llego el click');
+  }
 }
+
