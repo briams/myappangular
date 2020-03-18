@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { ImageComponent } from './image.component';
 
 
@@ -8,6 +9,9 @@ import { ImageComponent } from './image.component';
   declarations: [ImageComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [
+    ImageComponent
+  ],
 })
 export class ImageModule { }

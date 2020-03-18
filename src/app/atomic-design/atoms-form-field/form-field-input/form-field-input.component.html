@@ -1,0 +1,24 @@
+<mat-form-field [appearance]="appearance">
+  <mat-label>{{label}}</mat-label>
+  <input matInput *ngIf="!mask"
+    [type]="type"
+    [placeholder]="placeholder"
+    (input)="onInput($event.target.value)"
+    [value]="value"
+    >
+    <!-- formControlName="controlName" -->
+    <input matInput *ngIf="mask"
+    [type]="type"
+    [placeholder]="placeholder"
+    (input)="onInput($event.target.value)"
+    [value]="value"
+
+    [mask]="mask"
+    [showMaskTyped]="showMaskTyped || false"
+    [suffix]="suffix || ''"
+    [prefix]="prefix || ''"
+    >
+
+    <mat-icon *ngIf="icon && alignIcon == 'right'" (click)="setOnClick()" matSuffix>{{ icon }}</mat-icon>
+    <mat-icon *ngIf="icon && alignIcon == 'left'" (click)="setOnClick()" matPrefix>{{ icon }}</mat-icon>
+  </mat-form-field>

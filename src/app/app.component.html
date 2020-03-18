@@ -41,7 +41,7 @@
 
 <div>
   <h1>Atoms</h1>
-  <app-button theme="" backgroundColor="primary" [disabled]=false (onClick)="print()">
+  <app-button theme="" backgroundColor="primary" [disabled]=false (click)="print()">
     q pongo
   </app-button>
   <br>
@@ -50,7 +50,55 @@
   <br>
   <br>
   <app-link theme="" backgroundColor="primary" routerLink="customers"> dgjbnsdfjbg </app-link>
+  <div style="width: 200px;">
+    <app-image url="./assets/img/false.jpg" theme="" ></app-image>
+  </div>
 
+  <app-input type="text" placeholder="Format: YYYY-MM-DD hh:mm:ss" theme="" ></app-input>
+
+  <app-input-mask type="text" placeholder="Format: YYYY-MM-DD hh:mm:ss" theme=""  mask="000-0000-0000"></app-input-mask>
+<p>
+  <app-form-field appearance="outline" label="nose"></app-form-field>
+</p>
+
+
+<form [formGroup]="form">
+  <app-form-field-input appearance="outline"
+  formControlName="password"
+  label="holas" placeholder="aqui" alignIcon="right" [icon]="icon" [type]="type" (clickIcon)="clickIcon()"></app-form-field-input>
+
+  <app-form-field-select appearance="outline"
+  formControlName="opciones"
+  [options]="list"
+  [display]="'label'"
+  [key]="'id'"
+  label="holas" [icon]=""></app-form-field-select>
+
+  <app-form-field-checkbox
+  formControlName="checbox"
+  label="holas"></app-form-field-checkbox>
+
+  <app-select-autocomplete
+    class="grid-7-11"
+    [placeholder]="'Options Selection'"
+    [selectPlaceholder]="'Filter Options'"
+    [selectPlaceholder]="'search...'"
+    [errorMsg]="errorMessage"
+    [showErrorMsg]="showError"
+    [options]="instruments"
+    [display]="'name'"
+    [value]="'instrumentId'"
+    [multiple]="true"
+    [labelCount]="3"
+    [selectedOptions]="selectedOptions"
+    (selectionChange)="getSelectedOptions($event)"
+  >
+  </app-select-autocomplete>
+
+
+</form>
+
+<pre>{{ form.value | json }}</pre>
 
 </div>
 <div>

@@ -1,14 +1,19 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { themeInput } from './../theme.enum';
+
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  selector: 'app-input-mask',
+  templateUrl: './input-mask.component.html',
+  styleUrls: ['./input-mask.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InputComponent implements OnInit {
+export class InputMaskComponent implements OnInit {
   @Input() theme: string;
   @Input() type: string;
+  @Input() mask: string;
+  @Input() showMaskTyped: string;
+  @Input() suffix: string;
+  @Input() prefix: string;
   @Input() placeholder: string;
 
   themeClassName: string;

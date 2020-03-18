@@ -12,7 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input() theme: string;
 
   @Input() disabled: boolean;
-  @Output() onClick = new EventEmitter();
+  // @Output() onClick = new EventEmitter();
 
   backgroundColorClassName: string;
   themeClassName: string;
@@ -26,9 +26,9 @@ export class ButtonComponent implements OnInit {
 
   }
 
-  setOnClick() {
-    this.onClick.emit();
-  }
+  // setOnClick() {
+  //   this.onClick.emit();
+  // }
 
 }
 

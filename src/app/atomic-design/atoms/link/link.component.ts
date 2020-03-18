@@ -12,8 +12,6 @@ export class LinkComponent implements OnInit {
   @Input() backgroundColor: string;
   @Input() theme: string;
 
-  // @Input() link: string;
-
   backgroundColorClassName: string;
   themeClassName: string;
 

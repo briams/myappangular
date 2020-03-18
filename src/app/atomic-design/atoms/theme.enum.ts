@@ -22,3 +22,14 @@ export enum themeIcon {
   default  = material,
 }
 
+export enum themeImg {
+  reponsive  = 'img-responsive',
+  rounded  = 'img-rounded',
+  circle  = 'img-circle',
+  default  = reponsive,
+}
+
+export enum themeInput {
+  input  = 'mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored',
+  default  = input,
+}
