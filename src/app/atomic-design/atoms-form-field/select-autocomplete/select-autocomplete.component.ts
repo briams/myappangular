@@ -5,14 +5,16 @@ import {
   OnChanges,
   Output,
   ViewChild,
-  DoCheck
+  DoCheck,
+  ChangeDetectionStrategy
 } from "@angular/core";
 import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-select-autocomplete',
   templateUrl: './select-autocomplete.component.html',
-  styleUrls: ['./select-autocomplete.component.css']
+  styleUrls: ['./select-autocomplete.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectAutocompleteComponent implements OnChanges, DoCheck {
   @Input() selectPlaceholder: string = "search...";
