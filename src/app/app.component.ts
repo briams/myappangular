@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
       opciones: [2, Validators.required],
       checbox: [ true , Validators.required],
       multichecbox: [ this.instrumentsSelected , Validators.required],
+      group: [ 1 , Validators.required],
     });
   }
 

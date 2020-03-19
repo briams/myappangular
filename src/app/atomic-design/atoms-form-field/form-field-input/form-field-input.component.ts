@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, OnChanges, forwardRef } from '@angular/core';
 import { AlingIcon } from '../theme.enum';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-field-input',
@@ -32,15 +32,17 @@ export class FormFieldInputComponent implements ControlValueAccessor, OnInit {
 
   @Output() clickIcon = new EventEmitter();
 
-  value: string;
+  @Input() error: any;
+
+  value = new FormControl();
   isDisabled: boolean;
   onChange = (_: any) => { };
   onTouch = () => { };
 
   onInput(value: string) {
-    this.value = value;
+    // this.value = value;
     this.onTouch();
-    this.onChange(this.value);
+    this.onChange(this.value.value);
   }
 
   constructor() { }
@@ -50,7 +52,7 @@ export class FormFieldInputComponent implements ControlValueAccessor, OnInit {
   }
 
   writeValue(value: any): void {
-    this.value = value || '';
+    this.value.setValue(value || '');
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;

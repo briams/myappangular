@@ -27,6 +27,7 @@ import { FormFieldInputModule } from './atomic-design/atoms-form-field/form-fiel
 import { FormFieldSelectModule } from './atomic-design/atoms-form-field/form-field-select/form-field-select.module';
 import { FormFieldCheckboxModule } from './atomic-design/atoms-form-field/form-field-checkbox/form-field-checkbox.module';
 import { SelectAutocompleteModule } from './atomic-design/atoms-form-field/select-autocomplete/select-autocomplete.module';
+import { FormRadioGroupModule } from './atomic-design/atoms-form-field/form-radio-group/form-radio-group.module';
 
 
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
@@ -46,6 +47,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     FormFieldInputModule,
     FormFieldSelectModule,
     FormFieldCheckboxModule,
+    SelectAutocompleteModule,
+    FormRadioGroupModule,
 
     NgxMaskModule.forRoot(),
 
@@ -58,7 +61,6 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    SelectAutocompleteModule,
     AppRoutingModule
   ],
   providers: [MaskPipe],
