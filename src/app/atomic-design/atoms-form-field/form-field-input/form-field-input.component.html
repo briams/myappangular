@@ -1,4 +1,4 @@
-<mat-form-field [appearance]="appearance" [class]="error.invalid && (error.dirty || error.touched)  ? 'mat-form-field-invalid ng-invalid' : '' ">
+<mat-form-field [appearance]="appearance" [class]="error && error.invalid && (error.dirty || error.touched)  ? 'mat-form-field-invalid ng-invalid' : '' ">
   <mat-label>{{label}}</mat-label>
   <input matInput *ngIf="!mask"
     [type]="type"
@@ -22,10 +22,7 @@
     <mat-icon *ngIf="icon && alignIcon == 'right'" (click)="setOnClick()" matSuffix>{{ icon }}</mat-icon>
     <mat-icon *ngIf="icon && alignIcon == 'left'" (click)="setOnClick()" matPrefix>{{ icon }}</mat-icon>
 
-    <mat-hint style="color:red" *ngIf="error.invalid && (error.dirty || error.touched)">
-
-
-
+    <mat-hint style="color:red" *ngIf="error && error.invalid && (error.dirty || error.touched)">
 
     </mat-hint>
 

@@ -41,9 +41,9 @@
 
 <div>
   <h1>Atoms</h1>
-  <app-button theme="" backgroundColor="primary" [disabled]=false (click)="print()">
+  <!-- <app-button theme="" backgroundColor="primary" [disabled]=false (click)="print()">
     q pongo
-  </app-button>
+  </app-button> -->
   <br>
   <br>
   <app-icon>sentiment_very_satisfied</app-icon>
@@ -63,11 +63,11 @@
 
 
 <form [formGroup]="form">
-  <app-form-field-input appearance="outline"
+  <!-- <app-form-field-input appearance="outline"
   formControlName="password"
   label="holas" placeholder="aqui" alignIcon="right" [icon]="icon" [type]="type" (clickIcon)="clickIcon()"
   [error]="form.controls['password']"
-  ></app-form-field-input>
+  ></app-form-field-input> -->
 
   <app-form-field-select appearance="outline"
   formControlName="opciones"
@@ -105,6 +105,15 @@
   [key]="'id'"
   label="holas"
   ></app-form-radio-group>
+
+
+  <app-form-field-textarea appearance="outline" formControlName="text"
+  label="holas" placeholder="aqui" [error]="form.controls['text']"
+  ></app-form-field-textarea>
+
+  <app-input-search formControlName="password"
+  [error]="form.controls['password']" (keyEnter)="print($event)"
+  ></app-input-search>
 
 
 </form>

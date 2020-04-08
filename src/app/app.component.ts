@@ -38,16 +38,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.form = this._formBuilder.group({
-      password: [5, Validators.required],
+      password: ['', Validators.required],
       opciones: [2, Validators.required],
       checbox: [ true , Validators.required],
       multichecbox: [ this.instrumentsSelected , Validators.required],
       group: [ 1 , Validators.required],
+      text: [ '' , Validators.required],
     });
   }
 
-  print() {
-    console.log('llego el click');
+  print(value: string) {
+    console.log(value);
   }
 
   clickIcon() {
