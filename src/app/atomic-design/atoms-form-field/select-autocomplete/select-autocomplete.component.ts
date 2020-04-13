@@ -9,6 +9,7 @@ import {
   ChangeDetectionStrategy
 } from "@angular/core";
 import { FormControl } from "@angular/forms";
+import { ErrorMessage } from '../error-message';
 
 @Component({
   selector: 'app-select-autocomplete',
@@ -24,10 +25,12 @@ export class SelectAutocompleteComponent implements OnChanges, DoCheck {
   @Input() display = "display";
   @Input() value = "value";
   @Input() formControl: FormControl = new FormControl();
-  @Input() errorMsg: string = "Field is required";
-  @Input() showErrorMsg = false;
+  // @Input() errorMsg: string = "Field is required";
+  // @Input() showErrorMsg = false;
   @Input() selectedOptions;
   @Input() multiple = true;
+
+  @Input() error: any;
 
   // New Options
   @Input() labelCount: number = 1;
@@ -172,4 +175,16 @@ export class SelectAutocompleteComponent implements OnChanges, DoCheck {
   public trackByFn(index, item) {
     return item.value;
   }
+
+  getMessage() {
+    for (let propertyName in this.error.errors) {
+      if (this.error.errors.hasOwnProperty(propertyName) && this.error.dirty) {
+        return ErrorMessage.getValitorMessage(
+          propertyName,
+          this.error.errors[propertyName]
+        );
+      }
+    }
+  }
+
 }

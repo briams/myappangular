@@ -5,6 +5,8 @@
     [placeholder]="placeholder"
     (input)="onInput($event.target.value)"
     [formControl]="value"
+    autocomplete="off"
+    [readonly]="isReadonly"
     >
     <!-- formControlName="controlName" -->
     <input matInput *ngIf="mask"
@@ -12,6 +14,8 @@
     [placeholder]="placeholder"
     (input)="onInput($event.target.value)"
     [formControl]="value"
+    autocomplete="off"
+    [readonly]="isReadonly"
 
     [mask]="mask"
     [showMaskTyped]="showMaskTyped || false"
@@ -22,8 +26,8 @@
     <mat-icon *ngIf="icon && alignIcon == 'right'" (click)="setOnClick()" matSuffix>{{ icon }}</mat-icon>
     <mat-icon *ngIf="icon && alignIcon == 'left'" (click)="setOnClick()" matPrefix>{{ icon }}</mat-icon>
 
-    <mat-hint style="color:red" *ngIf="error && error.invalid && (error.dirty || error.touched)">
-
+    <mat-hint style="color:red" *ngIf="error && error.invalid && (error.dirty || error.touched || error.pristine)">
+      {{ getMessage() }}
     </mat-hint>
 
   </mat-form-field>

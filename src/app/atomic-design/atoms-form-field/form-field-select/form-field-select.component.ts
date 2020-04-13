@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, OnChanges, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { ErrorMessage } from '../error-message';
 
 @Component({
   selector: 'app-form-field-select',
@@ -22,6 +23,8 @@ export class FormFieldSelectComponent implements ControlValueAccessor, OnInit {
   @Input() options;
   @Input() display = "display";
   @Input() key = "key";
+
+  @Input() error: any;
 
   // value: string;
   isDisabled: boolean;
@@ -52,6 +55,17 @@ export class FormFieldSelectComponent implements ControlValueAccessor, OnInit {
   }
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  getMessage() {
+    for (let propertyName in this.error.errors) {
+      if (this.error.errors.hasOwnProperty(propertyName) && this.error.dirty) {
+        return ErrorMessage.getValitorMessage(
+          propertyName,
+          this.error.errors[propertyName]
+        );
+      }
+    }
   }
 
 }

@@ -44,5 +44,7 @@
       >{{ option[display] }}
     </mat-option>
   </mat-select>
-  <mat-hint style="color:red" *ngIf="showErrorMsg">{{ errorMsg }}</mat-hint>
+  <mat-hint style="color:red" *ngIf="error && error.invalid && (error.dirty || error.touched || error.pristine)">
+    {{ getMessage() }}
+  </mat-hint>
 </mat-form-field>

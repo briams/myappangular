@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, OnChanges, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { Direction } from '../theme.enum';
 
 @Component({
   selector: 'app-form-radio-group',
@@ -20,6 +21,10 @@ export class FormRadioGroupComponent implements ControlValueAccessor, OnInit {
   @Input() options;
   @Input() display = "display";
   @Input() key = "key";
+  @Input() direction: string;
+
+
+  directionClassName: string;
 
   // value: string;
   isDisabled: boolean;
@@ -37,6 +42,7 @@ export class FormRadioGroupComponent implements ControlValueAccessor, OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.directionClassName = this.direction ? Direction[this.direction] : Direction.default;
   }
 
   writeValue(value: any): void {

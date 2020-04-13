@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, OnChanges, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { ErrorMessage } from '../error-message';
 
 @Component({
   selector: 'app-form-field-textarea',
@@ -19,6 +20,8 @@ export class FormFieldTextareaComponent implements OnInit {
   @Input() appearance: string;
   @Input() label: string;
   @Input() placeholder: string;
+
+  @Input() isReadonly: boolean = false;
 
   @Input() error: any;
   value = new FormControl();
@@ -48,6 +51,17 @@ export class FormFieldTextareaComponent implements OnInit {
   }
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  getMessage() {
+    for (let propertyName in this.error.errors) {
+      if (this.error.errors.hasOwnProperty(propertyName) && this.error.dirty) {
+        return ErrorMessage.getValitorMessage(
+          propertyName,
+          this.error.errors[propertyName]
+        );
+      }
+    }
   }
 
 }

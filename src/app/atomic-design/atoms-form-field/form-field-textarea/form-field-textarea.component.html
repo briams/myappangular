@@ -5,11 +5,12 @@
   [placeholder]="placeholder"
   (input)="onInput($event.target.value)"
   [formControl]="value"
+  [readonly]="isReadonly"
   >
   </textarea>
 
   <mat-hint style="color:red" *ngIf="error && error.invalid && (error.dirty || error.touched)">
-
+    {{ getMessage() }}
   </mat-hint>
 
 </mat-form-field>
